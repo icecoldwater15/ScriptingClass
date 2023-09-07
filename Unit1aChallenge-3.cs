@@ -17,7 +17,7 @@ public class HelloWorld
   }
   else
   {
-      Console.WriteLine("Incorrect, please try again");
+      Console.WriteLine("Incorrect, please try again.");
   }
     }
 }
