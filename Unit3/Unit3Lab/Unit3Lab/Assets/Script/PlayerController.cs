@@ -11,7 +11,6 @@ public class NewBehaviourScript : MonoBehaviour
     private CharacterController controller;
     [SerializeField] private Vector3 moveDirection;
     [SerializeField] private bool isJumping;
-    
     [SerializeField] private float horizontalInput;
     [SerializeField] private float verticalInput;
 
@@ -30,13 +29,26 @@ public class NewBehaviourScript : MonoBehaviour
         moveDirection *= moveSpeed;
         moveDirection.y -= gravity;
 
-        if (Input.GetButtonDown("Jump") && controller.isGrounded) {
+        if (Input.GetButtonDown("Sprint") && controller.isGrounded)
+        {
+            moveSpeed = 25f;
+        }
+        else
+        {
+
+        }
+        
+        if (Input.GetButtonDown("Jump") && controller.isGrounded) 
+        {
             isJumping = true;
-        } else {
+        } 
+        else 
+        {
             isJumping = false;
         }
 
-        if (isJumping && controller.isGrounded) {
+        if (isJumping && controller.isGrounded) 
+        {
             moveDirection.y = jumpForce;
             isJumping = false;
         }
