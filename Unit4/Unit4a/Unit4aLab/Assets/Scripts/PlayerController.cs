@@ -11,11 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float verticalInput;
     [SerializeField] private float xRange = 11f;
     private CharacterController controller;
-   
-    public GunScript gunScript;
-    public PickupAmmoScript pickupAmmoScript;
-
-    // Start is called before the first frame update
+    public HealthScript healthScript;  
     void Start()
     {
         controller = GetComponent<CharacterController>();

@@ -6,9 +6,12 @@ TagManager:
   tags:
   - Border
   - Wall
-  - Enemy
   - AmmoBox
   - Gun
+  - ScoutEnemy
+  - BigEnemy
+  - RegEnemy
+  - HomeBase
   layers:
   - Default
   - TransparentFX

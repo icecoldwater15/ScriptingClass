@@ -6,21 +6,32 @@ public class BulletScript : MonoBehaviour
 {
     public float life = 3f;
     public HealthScript healthScript;
+    [SerializeField] public string[] enemyTags;
     
+    void SetEnemyTags()
+    {
+        string[] tagsToAdd = { "ScoutEnemy", "RegEnemy", "BigEnemy" };
+        enemyTags = tagsToAdd;
+    }
     void Awake()
     {
         Destroy(gameObject, life);
+        SetEnemyTags();
     }
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Enemy"))
+        foreach (string enemyTag in enemyTags)
         {
-            if(collision.gameObject.TryGetComponent(out healthScript))
+            if (collision.gameObject.CompareTag(enemyTag))
             {
-                healthScript.TakeDamage(1);
-            }
+                if(collision.gameObject.TryGetComponent(out healthScript))
+                {
+                    healthScript.TakeDamage(1);
+                }
 
+            }
+            Destroy(gameObject);
+            break;
         }
-        Destroy(gameObject);
     }
 }

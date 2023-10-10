@@ -11,13 +11,9 @@ public class HealthScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (gameObject.CompareTag("Wall"))
+        if (gameObject.CompareTag("Player"))
         {
-            maxHealth = 10;
-        }
-        if (gameObject.CompareTag("Enemy"))
-        {
-            maxHealth = 5;
+            maxHealth = 8;
         }
         currentHealth = maxHealth;
     }
