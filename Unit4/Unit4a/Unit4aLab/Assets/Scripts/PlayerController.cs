@@ -34,11 +34,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player HP: " + healthScript.currentHealth);
             previousHealth = healthScript.currentHealth;
         }
-        if (healthScript.objectDestroyed == true)
-        {
-            Debug.Log("YOU LOSE!");
-        }
-
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         moveDirection = new Vector3(horizontalInput, 0, verticalInput);

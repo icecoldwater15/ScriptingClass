@@ -11,10 +11,12 @@ public class EnemySpawnerScript : MonoBehaviour
     private int enemiesSpawned = 0;
     private int wavesSpawned = 0;
     public float nextSpawnTime;
+    public int previousWave;
+    public float enemySpeedMultiplier = 1.2f;
     void Start()
     {
         nextSpawnTime = Time.time + Random.Range(minSpawnDelay, maxSpawnDelay);
-
+        previousWave = wavesSpawned;
     }
 
     void Update()
@@ -25,7 +27,6 @@ public class EnemySpawnerScript : MonoBehaviour
             wavesSpawned++;
             enemiesSpawned = 0;
             StartCoroutine(StartNextWave());
-            
         }
         if (Time.time >= nextSpawnTime && enemiesSpawned < enemiesPerWave)
         { 
@@ -36,6 +37,10 @@ public class EnemySpawnerScript : MonoBehaviour
             
                 if (enemyComponent != null)
                 {
+                    if (wavesSpawned != previousWave)
+                    {
+                        enemyComponent.enemySpeed *= enemySpeedMultiplier;
+                    }
                     enemyComponent.EnemyStats();
                     Vector3 enemySpawnPoint = new Vector3(Random.Range(-10,11), 17.5f, 20);
                     enemy.transform.position = enemySpawnPoint;

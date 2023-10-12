@@ -17,12 +17,10 @@ public class PickupAmmoScript : MonoBehaviour
             
                 if (gunComponent != null)
                 {
-                    if (gunComponent.currentAmmo < gunComponent.maxAmmo) 
+                    if (gunComponent.ammoHeld < gunComponent.maxAmmo)
                     {
-                        gunComponent.currentAmmo += gunComponent.ammoNeeded;
+                        gunComponent.ammoHeld = gunComponent.maxAmmo;
                         Destroy(gameObject);
-                        gunComponent.ammoNeeded = 0;
-
                         Debug.Log("Ammo Refilled.");
                     }
                     else

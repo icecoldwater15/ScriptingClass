@@ -22,13 +22,13 @@ public class EnemyScript : MonoBehaviour
             if (gameObject.CompareTag(enemyScout))
             {
                 enemyDamage = 1;
-                enemySpeed = 7f;
+                enemySpeed = 4f;
                 healthComponent.maxHealth = 2;
             }
             else if (gameObject.CompareTag(enemyReg))
             {
                 enemyDamage = 2;
-                enemySpeed = 5f;
+                enemySpeed = 3f;
                 healthComponent.maxHealth = 4;
             }
             else if (gameObject.CompareTag(enemyBig))

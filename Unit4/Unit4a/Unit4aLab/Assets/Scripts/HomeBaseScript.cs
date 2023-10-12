@@ -6,7 +6,7 @@ public class HomeBaseScript : MonoBehaviour
 {
     
     
-    private HealthScript healthScript;
+    public HealthScript healthScript;
     private int previousHealth;
 
     // Start is called before the first frame update
@@ -28,6 +28,10 @@ public class HomeBaseScript : MonoBehaviour
         {
             Debug.Log("Homebase HP: " + healthScript.currentHealth);
             previousHealth = healthScript.currentHealth;
+        }
+        if (healthScript.currentHealth <= 0)
+        {
+            Debug.Log("YOU LOSE!");
         }
     }
 }
