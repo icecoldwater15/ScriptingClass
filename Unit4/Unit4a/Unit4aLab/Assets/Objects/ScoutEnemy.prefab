@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8273251396770719381}
   - component: {fileID: 3509193288875251391}
   - component: {fileID: 6254151905506181895}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Eyes (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: -5862957946859811893}
   - component: {fileID: 3104461547271676166}
   - component: {fileID: 7548099057925772279}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: ScoutEnemy
   m_TagString: ScoutEnemy
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.42, y: 17.56, z: -6.5370817}
-  m_LocalScale: {x: 0.80971175, y: 0.024435569, z: 0.8859185}
+  m_LocalScale: {x: 0.80971175, y: 0.27059415, z: 0.8859185}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8914985176722041668}
@@ -209,7 +209,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -233,6 +233,7 @@ MonoBehaviour:
   enemyBig: BigEnemy
   playerTag: Player
   homeBaseTag: HomeBase
+  enemySpeed: 0
 --- !u!114 &3104461547271676166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +287,7 @@ GameObject:
   - component: {fileID: 5069958291074303289}
   - component: {fileID: 979891781965686110}
   - component: {fileID: 7563985903016543025}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}

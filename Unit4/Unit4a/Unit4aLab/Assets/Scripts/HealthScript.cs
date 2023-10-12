@@ -6,24 +6,21 @@ public class HealthScript : MonoBehaviour
 {
     [SerializeField] public int maxHealth;
     [SerializeField] public int currentHealth;
-    
-    
+    public bool objectDestroyed = false;
     // Start is called before the first frame update
     void Start()
     {
-        if (gameObject.CompareTag("Player"))
-        {
-            maxHealth = 8;
-        }
         currentHealth = maxHealth;
     }
+    
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
 
-        if (currentHealth < 0)
+        if (currentHealth < 1)
         {
             Destroy(gameObject);
+            objectDestroyed = true;
         }
     }
 }

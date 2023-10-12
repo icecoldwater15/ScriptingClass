@@ -10,17 +10,35 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float horizontalInput;
     [SerializeField] private float verticalInput;
     [SerializeField] private float xRange = 11f;
-    private CharacterController controller;
-    public HealthScript healthScript;  
+    private CharacterController controller;  
+    private HealthScript healthScript;
+    public int previousHealth;
     void Start()
     {
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
+        healthScript = GetComponent<HealthScript>();
+        if (healthScript != null)
+        {
+            healthScript.maxHealth = 8;
+            previousHealth = healthScript.currentHealth;
+            Debug.Log("Player HP: " + healthScript.currentHealth);
+        }  
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (healthScript.currentHealth != previousHealth)
+        {
+            Debug.Log("Player HP: " + healthScript.currentHealth);
+            previousHealth = healthScript.currentHealth;
+        }
+        if (healthScript.objectDestroyed == true)
+        {
+            Debug.Log("YOU LOSE!");
+        }
+
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         moveDirection = new Vector3(horizontalInput, 0, verticalInput);
@@ -45,6 +63,5 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
-        
     }
 }

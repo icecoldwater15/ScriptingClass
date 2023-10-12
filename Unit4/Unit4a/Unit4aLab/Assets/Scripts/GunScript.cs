@@ -12,11 +12,14 @@ public class GunScript : MonoBehaviour
     public int ammoNeeded;
     public PlayerController playerController;
     public PickupAmmoScript pickupAmmoScript;
+    public int previousAmmo;
     
 
     void Start()
     {
         currentAmmo = maxAmmo;
+        Debug.Log("AMMO: " + currentAmmo);
+        previousAmmo = currentAmmo;
     }
     void Update()
     {
@@ -29,6 +32,11 @@ public class GunScript : MonoBehaviour
                 currentAmmo -= 1;
                 ammoNeeded += 1;
             }
+        }
+        if (currentAmmo != previousAmmo)
+        {
+            Debug.Log("AMMO:" + currentAmmo);
+            previousAmmo = currentAmmo;
         }
     }
     

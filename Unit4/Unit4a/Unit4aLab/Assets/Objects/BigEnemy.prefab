@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7207512546539613751}
   - component: {fileID: 7316542558914424266}
   - component: {fileID: 405042775194553680}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 8321659344425869876}
   - component: {fileID: 720965908743186083}
   - component: {fileID: 426032026328830613}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Eyes (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: -7235013532553194743}
   - component: {fileID: -4464517792430429500}
   - component: {fileID: -6297216824669196216}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: BigEnemy
   m_TagString: BigEnemy
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.94, y: 17.65, z: -6.5370817}
-  m_LocalScale: {x: 1.9770494, y: 0.05612575, z: 2.1631212}
+  m_LocalScale: {x: 1.9770494, y: 0.66691744, z: 2.1631212}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 429915087769564892}
@@ -314,7 +314,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -338,6 +338,7 @@ MonoBehaviour:
   enemyBig: BigEnemy
   playerTag: Player
   homeBaseTag: HomeBase
+  enemySpeed: 0
 --- !u!114 &-4464517792430429500
 MonoBehaviour:
   m_ObjectHideFlags: 0

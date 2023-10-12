@@ -18,20 +18,19 @@ public class BulletScript : MonoBehaviour
         Destroy(gameObject, life);
         SetEnemyTags();
     }
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
         foreach (string enemyTag in enemyTags)
         {
-            if (collision.gameObject.CompareTag(enemyTag))
+            if (other.CompareTag(enemyTag))
             {
-                if(collision.gameObject.TryGetComponent(out healthScript))
+                if(other.TryGetComponent(out healthScript))
                 {
                     healthScript.TakeDamage(1);
                 }
-
+                break;
             }
-            Destroy(gameObject);
-            break;
         }
+        Destroy(gameObject);
     }
 }
