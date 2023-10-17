@@ -20,7 +20,6 @@ public class GunScript : MonoBehaviour
     {
         currentAmmo = magazineSize;
         ammoHeld = maxAmmo;
-        Debug.Log("AMMO: " + currentAmmo + "/" + ammoHeld);
         previousAmmo = currentAmmo;
     }
     void Update()
@@ -35,41 +34,17 @@ public class GunScript : MonoBehaviour
                 ammoNeeded += 1;
             }
         }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                Debug.Log("No more ammo. ");
-                if  (ammoHeld > 0)
-                {
-                    Debug.Log("Press R to reload.");
-                }
-            }
-        }
         if (Input.GetKeyDown(KeyCode.R) && ammoHeld > 0 && currentAmmo < magazineSize)
         {
-            Debug.Log("Reloading....");
             StartCoroutine(ReloadTime());
-            if  (ammoHeld <= 0)
-            {
-                Debug.Log ("Find an ammo box to refill your ammo.");
-            }
-        
-        
         }
         if  (ammoHeld < 0 )
         {
          ammoHeld = 0;
         }
-
-        if (currentAmmo != previousAmmo)
+        if  (ammoHeld > 40)
         {
-            Debug.Log("AMMO:" + currentAmmo + "/" + ammoHeld);
-            previousAmmo = currentAmmo;
-        }
-        if  (ammoHeld > 35)
-        {
-         ammoHeld = 35;
+         ammoHeld = 40;
         }
     }
     IEnumerator ReloadTime()
