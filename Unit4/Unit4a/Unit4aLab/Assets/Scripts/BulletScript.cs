@@ -28,6 +28,7 @@ public class BulletScript : MonoBehaviour
                 {
                     healthScript.TakeDamage(1);
                 }
+                
                 break;
             }
         }

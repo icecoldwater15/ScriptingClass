@@ -12,11 +12,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float xRange = 11f;
     private CharacterController controller;  
     private HealthScript healthScript;
+    public GameManagerScript gameManagerScript;
+    private bool isDead;
     public int previousHealth;
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
         healthScript = GetComponent<HealthScript>();
         if (healthScript != null)
         {
@@ -33,6 +35,12 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player HP: " + healthScript.currentHealth);
             previousHealth = healthScript.currentHealth;
+        }
+        if (healthScript.currentHealth <= 0 && !isDead)
+        {
+            isDead = true;
+            gameObject.SetActive(false);
+            gameManagerScript.gameOver();
         }
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");

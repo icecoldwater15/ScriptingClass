@@ -8,6 +8,9 @@ public class HomeBaseScript : MonoBehaviour
     
     public HealthScript healthScript;
     private int previousHealth;
+    public GameManagerScript gameManagerScript;
+    private bool isDead;
+    private GameObject playerObject;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +22,7 @@ public class HomeBaseScript : MonoBehaviour
             previousHealth = healthScript.currentHealth;
         }
         Debug.Log("Homebase HP: " + healthScript.maxHealth);
+        playerObject = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -29,9 +33,11 @@ public class HomeBaseScript : MonoBehaviour
             Debug.Log("Homebase HP: " + healthScript.currentHealth);
             previousHealth = healthScript.currentHealth;
         }
-        if (healthScript.currentHealth <= 0)
+        if (healthScript.currentHealth <= 0 && !isDead)
         {
-            Debug.Log("YOU LOSE!");
+            isDead = true;
+            playerObject.SetActive(false);
+            gameManagerScript.gameOver();
         }
     }
 }

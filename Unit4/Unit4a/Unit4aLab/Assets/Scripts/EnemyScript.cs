@@ -12,10 +12,11 @@ public class EnemyScript : MonoBehaviour
     public string playerTag = "Player";
     public string homeBaseTag = "HomeBase";
     public float enemySpeed;
+    private HealthScript healthComponent;
 
     public void EnemyStats()
     {
-        HealthScript healthComponent = GetComponent<HealthScript>();
+        healthComponent = GetComponent<HealthScript>();
         enemySpeed = 0f;
         if (healthComponent != null)
         {
@@ -37,6 +38,14 @@ public class EnemyScript : MonoBehaviour
                 enemySpeed = 2f;
                 healthComponent.maxHealth = 8;
             }
+        }
+    }
+    
+    void Update()
+    {
+        if (healthComponent.currentHealth <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 

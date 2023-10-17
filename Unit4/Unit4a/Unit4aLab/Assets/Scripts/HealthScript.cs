@@ -16,9 +16,9 @@ public class HealthScript : MonoBehaviour
     {
         currentHealth -= amount;
 
-        if (currentHealth < 1)
+        if (currentHealth < 0)
         {
-            Destroy(gameObject);
+            currentHealth = 0;
         }
     }
 }
