@@ -9,7 +9,7 @@ public class EnemySpawnerScript : MonoBehaviour
     public float maxSpawnDelay = 3f;
     public int enemiesPerWave = 10;
     private int enemiesSpawned = 0;
-    private int wavesSpawned = 0;
+    public int wavesSpawned = 1;
     public float nextSpawnTime;
     public int previousWave;
     public float enemySpeedMultiplier = 1.2f;

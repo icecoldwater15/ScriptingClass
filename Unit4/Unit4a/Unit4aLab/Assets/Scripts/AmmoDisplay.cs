@@ -10,6 +10,7 @@ public class AmmoDisplay : MonoBehaviour
     public TextMeshProUGUI ammoCount;
     public TextMeshProUGUI reloadPrompt;
     public TextMeshProUGUI findAmmoBoxPrompt;
+    public TextMeshProUGUI reloadingPrompt;
 
     void Update()
     {

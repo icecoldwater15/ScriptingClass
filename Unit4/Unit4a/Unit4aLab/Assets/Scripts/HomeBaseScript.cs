@@ -21,18 +21,12 @@ public class HomeBaseScript : MonoBehaviour
             healthScript.maxHealth = 15;
             previousHealth = healthScript.currentHealth;
         }
-        Debug.Log("Homebase HP: " + healthScript.maxHealth);
         playerObject = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (healthScript.currentHealth != previousHealth)
-        {
-            Debug.Log("Homebase HP: " + healthScript.currentHealth);
-            previousHealth = healthScript.currentHealth;
-        }
         if (healthScript.currentHealth <= 0 && !isDead)
         {
             isDead = true;

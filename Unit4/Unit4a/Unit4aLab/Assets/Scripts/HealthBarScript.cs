@@ -12,6 +12,7 @@ public class HealthBarScript : MonoBehaviour
     void Awake()
     {
         slider = GetComponent<Slider>();
+        
     }
 
     void Update()
@@ -25,7 +26,7 @@ public class HealthBarScript : MonoBehaviour
             fillImage.enabled = true;
         }
 
-        float fillValue = healthScript.currentHealth / healthScript.maxHealth;
+        float fillValue = healthScript.currentHealth;
         slider.value = fillValue;
     }
 }

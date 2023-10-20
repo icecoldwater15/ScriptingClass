@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float verticalInput;
     [SerializeField] private float xRange = 11f;
     private CharacterController controller;  
-    private HealthScript healthScript;
+    public HealthScript healthScript;
     public GameManagerScript gameManagerScript;
     private bool isDead;
     public int previousHealth;
@@ -24,18 +24,12 @@ public class PlayerController : MonoBehaviour
         {
             healthScript.maxHealth = 8;
             previousHealth = healthScript.currentHealth;
-            Debug.Log("Player HP: " + healthScript.currentHealth);
         }  
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (healthScript.currentHealth != previousHealth)
-        {
-            Debug.Log("Player HP: " + healthScript.currentHealth);
-            previousHealth = healthScript.currentHealth;
-        }
         if (healthScript.currentHealth <= 0 && !isDead)
         {
             isDead = true;
