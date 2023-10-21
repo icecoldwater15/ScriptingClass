@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float xRange = 11f;
     private CharacterController controller;  
     public HealthScript healthScript;
+    public PlaySoundScript playSoundScript;
     public GameManagerScript gameManagerScript;
     private bool isDead;
     public int previousHealth;
@@ -32,7 +33,9 @@ public class PlayerController : MonoBehaviour
     {
         if (healthScript.currentHealth <= 0 && !isDead)
         {
+            playSoundScript.StopGameSound();
             isDead = true;
+            playSoundScript.PlayDeathSound();
             gameObject.SetActive(false);
             gameManagerScript.gameOver();
         }

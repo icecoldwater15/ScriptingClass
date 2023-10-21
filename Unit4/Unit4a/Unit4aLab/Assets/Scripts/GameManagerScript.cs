@@ -6,17 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     public GameObject gameOverScreen;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public PlaySoundScript playSoundScript;
 
     public void gameOver()
     {
@@ -24,7 +14,8 @@ public class GameManagerScript : MonoBehaviour
     }
     public void Restart()
     {
-        SceneManager.LoadScene(1);
+        playSoundScript.PlayAgainButton();
+        StartCoroutine(LoadNewScene());
     }
     public void MainMenu()
     {
@@ -34,6 +25,11 @@ public class GameManagerScript : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("QuitGame");
+    }
+    private IEnumerator LoadNewScene()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(1);
     }
 
 }

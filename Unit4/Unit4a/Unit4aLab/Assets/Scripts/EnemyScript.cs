@@ -13,6 +13,7 @@ public class EnemyScript : MonoBehaviour
     public string homeBaseTag = "HomeBase";
     public float enemySpeed;
     private HealthScript healthComponent;
+    public PlaySoundScript playSoundScript;
 
     public void EnemyStats()
     {

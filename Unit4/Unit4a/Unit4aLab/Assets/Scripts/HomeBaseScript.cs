@@ -9,6 +9,7 @@ public class HomeBaseScript : MonoBehaviour
     public HealthScript healthScript;
     private int previousHealth;
     public GameManagerScript gameManagerScript;
+    public PlaySoundScript playSoundScript;
     private bool isDead;
     private GameObject playerObject;
 
@@ -29,7 +30,9 @@ public class HomeBaseScript : MonoBehaviour
     {
         if (healthScript.currentHealth <= 0 && !isDead)
         {
+            playSoundScript.StopGameSound();
             isDead = true;
+            playSoundScript.PlayDeathSound();
             playerObject.SetActive(false);
             gameManagerScript.gameOver();
         }
