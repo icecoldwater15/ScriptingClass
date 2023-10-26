@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class TextLabelBehavior : MonoBehaviour
+public class TexthealthLabelBehavior : MonoBehaviour
 {
-    public TextMeshProUGUI label;
-    public FloatData floatData;
+    public TextMeshProUGUI healthLabel;
+    public HealthScript healthScript;
+    public TextMeshProUGUI ammoLabel;
+    public AmmoScript ammoScript;
 
     void Update()
     {
-        label.text = floatData.value.ToString();
+        healthLabel.text = "Health: " + healthScript.currentHealth.ToString();
+        ammoLabel.text = "Ammo: " + ammoScript.magazineSize.ToString() + "/" + ammoScript.maxAmmo.ToString();
     }
 
 }
