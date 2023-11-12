@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class SpriteControllerScript : MonoBehaviour
 {
-    private SpriteRenderer rendererObj;
+    public SpriteRenderer rendererObj;
     void Start()
     {
         rendererObj = GetComponent<SpriteRenderer>();
