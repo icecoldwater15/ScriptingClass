@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 577148195}
   - component: {fileID: 577148197}
   - component: {fileID: 577148196}
+  - component: {fileID: 577148198}
   m_Layer: 5
   m_Name: GoLabel
   m_TagString: Untagged
@@ -325,6 +326,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577148194}
   m_CullTransparentMesh: 1
+--- !u!114 &577148198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577148194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c7136540ff24343b466a76b861933f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: {fileID: 577148196}
 --- !u!1 &1173823616
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,8 +368,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d045c995ddfd6ba429c2641a97184eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterNum: 3
+  counterNum: {fileID: 11400000, guid: ae59542807757d0488ec955cf35eb0bf, type: 2}
   seconds: 1
+  startEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: ae59542807757d0488ec955cf35eb0bf, type: 2}
+        m_TargetAssemblyTypeName: Score, Assembly-CSharp
+        m_MethodName: SetValue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   repeatEvent:
     m_PersistentCalls:
       m_Calls:
@@ -369,6 +398,45 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: On
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 577148198}
+        m_TargetAssemblyTypeName: TextBehaviorScript, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: ae59542807757d0488ec955cf35eb0bf, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Score, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: On
+          m_BoolArgument: 0
+        m_CallState: 2
+  endEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1366157351}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: On
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 577148198}
+        m_TargetAssemblyTypeName: TextBehaviorScript, Assembly-CSharp
+        m_MethodName: NewLabel
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Go!
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!4 &1173823618

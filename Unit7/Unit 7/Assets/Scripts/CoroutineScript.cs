@@ -7,22 +7,31 @@ public class CoroutineScript: MonoBehaviour
 {
     private WaitForSeconds wfsObj;
     private WaitForFixedUpdate wffuObj;
-    public int counterNum = 3;
-    public float seconds = 3f;
-    public UnityEvent repeatEvent;
+    public Score counterNum;
+    public float seconds;
+    public UnityEvent startEvent, repeatEvent, endEvent, keepRunningEvent;
+    public bool canRun = true;
     
     IEnumerator Start()
     {
         wfsObj = new WaitForSeconds(seconds);
         wffuObj = new WaitForFixedUpdate();
-
-        while (counterNum > 0)
+        startEvent.Invoke();
+        yield return wfsObj;
+        while (counterNum.value > 0)
+        {
+            canRun = false;
+            repeatEvent.Invoke();
+            yield return wfsObj;
+            counterNum.value --;
+        }
+        while (canRun == true)
         {
             yield return wfsObj;
-            counterNum --;
-            repeatEvent.Invoke();
-            Debug.Log("nuts");
+            keepRunningEvent.Invoke();
         }
 
+
+        endEvent.Invoke();
     }
 }
