@@ -24,14 +24,22 @@ public class CoroutineScript: MonoBehaviour
             repeatEvent.Invoke();
             yield return wfsObj;
             counterNum.value --;
+            if (counterNum.value <= 0)
+            {
+                canRun = true;
+                endEvent.Invoke();
+                break;
+                
+            }
         }
         while (canRun == true)
         {
+            wfsObj = new WaitForSeconds(Random.Range(3f, 5f));
             yield return wfsObj;
             keepRunningEvent.Invoke();
         }
 
 
-        endEvent.Invoke();
+        
     }
 }

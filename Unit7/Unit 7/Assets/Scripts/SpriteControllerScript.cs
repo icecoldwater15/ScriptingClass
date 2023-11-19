@@ -5,7 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class SpriteControllerScript : MonoBehaviour
 {
+    public Color[] spriteColors = {Color.red, Color.green, Color.blue};
     public SpriteRenderer rendererObj;
+
     void Start()
     {
         rendererObj = GetComponent<SpriteRenderer>();
@@ -14,6 +16,7 @@ public class SpriteControllerScript : MonoBehaviour
 
     public void ChangeObjColor(ColorID obj)
     {
-        rendererObj.color = obj.value;
+        obj.color = spriteColors[Random.Range(0, spriteColors.Length)];
+        rendererObj.color = obj.color;
     }
 }

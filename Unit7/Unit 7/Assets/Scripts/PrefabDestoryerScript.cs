@@ -10,4 +10,8 @@ public class PrefabDestoryerScript : MonoBehaviour
     {
         Destroy(gameObject, life);
     }
+    public void DestoryGameObj(GameObject obj)
+    {
+        Destroy(obj);
+    }
 }
