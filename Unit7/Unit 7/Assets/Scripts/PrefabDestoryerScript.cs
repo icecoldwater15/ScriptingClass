@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PrefabDestoryerScript : MonoBehaviour
 {
-    public float life;
+    public float seconds = 1f;
+    public WaitForSeconds wfsObj;
 
-    void Awake()
+
+    IEnumerator Start()
     {
-        Destroy(gameObject, life);
-    }
-    public void DestoryGameObj(GameObject obj)
-    {
-        Destroy(obj);
+        wfsObj = new WaitForSeconds(seconds);
+        yield return wfsObj;
+        Destroy(gameObject);
     }
 }

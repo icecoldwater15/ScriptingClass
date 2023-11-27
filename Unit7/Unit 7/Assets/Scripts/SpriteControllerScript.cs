@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class SpriteControllerScript : MonoBehaviour
 {
-    public Color[] spriteColors = {Color.red, Color.green, Color.blue};
     public SpriteRenderer rendererObj;
+    private int num;
 
     void Start()
     {
@@ -16,7 +16,11 @@ public class SpriteControllerScript : MonoBehaviour
 
     public void ChangeObjColor(ColorID obj)
     {
-        obj.color = spriteColors[Random.Range(0, spriteColors.Length)];
         rendererObj.color = obj.color;
+    }
+
+    public void ChangeObjColorRandom(ColorIDDataList obj)
+    {
+        rendererObj.color = obj.currentColor.color;
     }
 }

@@ -5,19 +5,41 @@ using UnityEngine;
 [CreateAssetMenu]
 public class InstancerScript : ScriptableObject
 {
-    public Vector3 circleSpawn;
-    public Vector3 playerSpawn;
+    public GameObject prefab;
+    private int num;
 
-    public void CreateInstance(GameObject obj)
+    public void CreateInstance()
     {
-        Instantiate(obj);
-        circleSpawn = new Vector3(Random.Range(-5,5), 5, 0);
-        obj.transform.position = circleSpawn;
+        Instantiate(prefab);
     }
-    public void CreatePlayerInstance(GameObject obj)
+
+    public void CreateInstance(Vector3Data obj)
     {
-        Instantiate(obj);
-        playerSpawn = new Vector3(0, -4, 0);
-        obj.transform.position = playerSpawn;
+        Instantiate(prefab, obj.value, Quaternion.identity);
+    }
+
+    public void CreateInstanceFromList(Vector3DataList obj)
+    {
+        foreach (var t in obj.vector3DList)
+        {
+            Instantiate(prefab, t.value, Quaternion.identity);
+        }
+    }
+
+
+    public void CreateInstanceFromListCounting(Vector3DataList obj)
+    {
+        Instantiate(prefab, obj.vector3DList[num].value, Quaternion.identity);
+        num++;
+        if (num == obj.vector3DList.Count)
+        {
+            num = 0;
+        }
+    }
+
+    public void CreateInstanceRandomized(Vector3DataList obj)
+    {
+        num = Random.Range(0, obj.vector3DList.Count-1);
+        Instantiate(prefab, obj.vector3DList[num].value, Quaternion.identity);
     }
 }

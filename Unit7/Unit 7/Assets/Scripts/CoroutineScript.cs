@@ -10,36 +10,46 @@ public class CoroutineScript: MonoBehaviour
     public Score counterNum;
     public float seconds;
     public UnityEvent startEvent, repeatEvent, endEvent, keepRunningEvent;
-    public bool canRun = true;
+    public bool canRun = false;
     
-    IEnumerator Start()
+    void Start()
     {
         wfsObj = new WaitForSeconds(seconds);
         wffuObj = new WaitForFixedUpdate();
         startEvent.Invoke();
+        StartCoroutine(Counter());
+    }
+    
+    
+    public IEnumerator Counter()
+    {
         yield return wfsObj;
         while (counterNum.value > 0)
         {
-            canRun = false;
             repeatEvent.Invoke();
             yield return wfsObj;
             counterNum.value --;
             if (counterNum.value <= 0)
             {
-                canRun = true;
                 endEvent.Invoke();
                 break;
-                
             }
         }
+    }
+
+    public void StartKeepRunning()
+    {
+        canRun = true;
+        StartCoroutine(KeepRunning());
+    }
+
+    
+    private IEnumerator KeepRunning()
+    {
         while (canRun == true)
         {
-            wfsObj = new WaitForSeconds(Random.Range(3f, 5f));
             yield return wfsObj;
             keepRunningEvent.Invoke();
         }
-
-
-        
     }
 }
